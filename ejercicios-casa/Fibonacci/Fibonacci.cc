@@ -13,13 +13,10 @@
 
 #include <iostream>
 
-int main() {
-  int N;
-  std::cout << "Introduce el numero de terminos de la serie de Fibonacci: ";
-  std::cin >> N;
-  int a = 0;   // primer término
-  int b = 1;   // segundo término
-  std::cout << "Los " << N << " primeros terminos de la serie de Fibonacci son:" << std::endl;
+// Función que imprime los N primeros términos de Fibonacci
+void imprimirFibonacci(int N) {
+  int a = 0; // primer término
+  int b = 1; // segundo término
   for (int i = 0; i < N; i++) {
       std::cout << a << " ";
       int siguiente = a + b;
@@ -27,5 +24,13 @@ int main() {
       b = siguiente;
   }
   std::cout << std::endl;
+}
+
+int main() {
+  int N;
+  std::cout << "Introduce el numero de terminos de la serie de Fibonacci: ";
+  std::cin >> N;
+  std::cout << "Los " << N << " primeros terminos de la serie de Fibonacci son:" << std::endl;
+  imprimirFibonacci(N);
   return 0;
 }

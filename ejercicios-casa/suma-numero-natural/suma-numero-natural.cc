@@ -12,16 +12,22 @@
 
 #include <iostream>
 
+// Función que calcula la suma de los dígitos de un número
+int sumaDeDigitos(int numero) {
+  int suma = 0;
+  while (numero > 0) {
+      int digito = numero % 10;
+      suma += digito;
+      numero /= 10;
+  }
+  return suma;
+}
+
 int main() {
   int numero;
   std::cout << "Introduce un numero natural: ";
   std::cin >> numero;
-  int suma = 0;
-  while (numero > 0) {
-      int digito = numero % 10;   // Obtiene el último dígito
-      suma = suma + digito;       // Lo suma al total
-      numero = numero / 10;       // Quita el último dígito
-  }
+  int suma = sumaDeDigitos(numero);
   std::cout << "La suma de los digitos es: " << suma << std::endl;
   return 0;
 }

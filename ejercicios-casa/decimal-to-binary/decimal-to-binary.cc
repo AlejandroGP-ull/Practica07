@@ -13,33 +13,35 @@
 
 #include <iostream>
 
+// Función que imprime la representación binaria de un número decimal
+void decimalABinario(long long n) {
+	if (n == 0) {
+		std::cout << 0;
+		return;
+	}
+	long long p = 1;
+	while (p <= n / 2) {
+		p *= 2; // p toma valores 1,2,4,8,...
+	}
+	while (p > 0) {
+		int bit = (n >= p) ? 1 : 0;
+		std::cout << bit;
+		if (bit == 1) {
+			n -= p; // resta la potencia usada
+		}
+		p /= 2; // baja a la siguiente potencia de 2
+	}
+}
+
 int main() {
-  long long n;
-  std::cout << "Introduce un numero decimal (>= 0): ";
-  std::cin >> n;
-  if (n < 0) {
-      std::cout << "Wrong Input" << std::endl;
-      return 0;
-  }
-  // Caso especial: 0 en binario es 0
-  if (n == 0) {
-      std::cout << 0 << std::endl;
-      return 0;
-  }
-  // Encuentra la mayor potencia de 2 <= n
-  long long p = 1;
-  while (p <= n / 2) {
-      p = p * 2; // p toma valores 1,2,4,8,...
-  }
-  // Imprime los bits desde la potencia mas alta hasta 1
-  while (p > 0) {
-      int bit = (n >= p) ? 1 : 0;
-      std::cout << bit;
-      if (bit == 1) {
-          n = n - p; // resta la potencia usada
-      }
-      p = p / 2; // baja a la siguiente potencia de 2
-  }
-  std::cout << std::endl;
-  return 0;
+	long long n;
+	std::cout << "Introduce un numero decimal (>= 0): ";
+	std::cin >> n;
+	if (n < 0) {
+		std::cout << "Wrong Input" << std::endl;
+		return 0;
+	}
+  decimalABinario(n);
+	std::cout << std::endl;
+	return 0;
 }

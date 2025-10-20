@@ -11,20 +11,26 @@
   * @bug No hay errores conocidos
   */
 
+
 #include <iostream>
 
+// Función que verifica y muestra si un año es bisiesto
+void verificarBisiesto(int anio) {
+	if (anio <= 0) {
+		std::cout << "Wrong Input" << std::endl;
+	} else if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0))) {
+		std::cout << "Leap Year" << std::endl;
+	} else {
+		std::cout << "Not Leap Year" << std::endl;
+	}
+}
+
 int main() {
-  int anio;
-  std::cout << "Introduce un anio: ";
-  std::cin >> anio;
-  if (anio <= 0) {
-      std::cout << "Wrong Input" << std::endl;
-      return 0;
-  }
-  if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0))) {
-      std::cout << "Leap Year" << std::endl;
-  } else {
-      std::cout << "Not Leap Year" << std::endl;
-  }
-  return 0;
+	int anio;
+	std::cout << "Introduce un anio: ";
+	std::cin >> anio;
+
+	verificarBisiesto(anio);
+
+	return 0;
 }
